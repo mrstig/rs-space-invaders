@@ -1,0 +1,6 @@
+[package]
+name = "rs-space-invaders"
+version = "0.1.0"
+authors = ["Feryla"]
+
+[dependencies]
