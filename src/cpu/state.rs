@@ -18,16 +18,16 @@ pub struct State {
 impl Default for State {
     fn default() -> State {
         return State {
-            a: u8::min_value(),
-            b: u8::min_value(),
-            c: u8::min_value(),
-            d: u8::min_value(),
-            e: u8::min_value(),
-            h: u8::min_value(),
-            l: u8::min_value(),
-            sp: u16::min_value(),
-            pc: u16::min_value(),
-            memory: Vec::new(),
+            a: 0,
+            b: 0,
+            c: 0,
+            d: 0,
+            e: 0,
+            h: 0,
+            l: 0,
+            sp: 0,
+            pc: 0,
+            memory: vec![0; 65536],
             cc: Default::default(),
             int_enable: u8::min_value()
         };

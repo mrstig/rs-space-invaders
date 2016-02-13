@@ -10,13 +10,11 @@ use cpu::cpu::CPU;
 
 fn main() {
     let rom = romloader::load();
-
     let mut cpu: CPU = Default::default();
-    cpu.load_rom(rom);
-    cpu.emulate_op();
 
-    // while pc < rom.len(){
-    //     pc += disassembler::disassemble(&rom, pc);
-    // }
-    // println!("{:?}", &rom.len());
+    cpu.load_rom(rom);
+
+    loop {
+        cpu.emulate_op();
+    }
 }
