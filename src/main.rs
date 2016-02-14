@@ -7,6 +7,8 @@ mod cpu {
 }
 
 use cpu::cpu::CPU;
+use std::process;
+
 
 fn main() {
     let rom = romloader::load();
@@ -14,7 +16,15 @@ fn main() {
 
     cpu.load_rom(rom);
 
+    let mut x = 0;
     loop {
+        x +=1;
+        if x>1545 {
+            cpu.state.print();
+        }
+        if x>1555 {
+            process::exit(1);
+        }
         cpu.emulate_op();
     }
 }

@@ -44,5 +44,6 @@ impl State {
         println!("hl: {:02X}{:02X}", self.h, self.l);
         println!("pc: {:04X}", self.pc);
         println!("sp: {:04X}", self.sp);
+        self.cc.print();
     }
 }

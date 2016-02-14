@@ -19,3 +19,12 @@ impl Default for ConditionCodes {
         };
     }
 }
+
+impl ConditionCodes {
+    pub fn print(&self) {
+        println!("z: {}", self.z);
+        println!("s: {}", self.s);
+        println!("p: {}", self.p);
+        println!("cy: {}", self.cy);
+    }
+}
