@@ -33,3 +33,16 @@ impl Default for State {
         };
     }
 }
+
+impl State {
+    pub fn print(&self) {
+        println!("State");
+        println!("=================");
+        println!("af: {:02X}", self.a);
+        println!("bc: {:02X}{:02X}", self.b, self.c);
+        println!("de: {:02X}{:02X}", self.d, self.e);
+        println!("hl: {:02X}{:02X}", self.h, self.l);
+        println!("pc: {:04X}", self.pc);
+        println!("sp: {:04X}", self.sp);
+    }
+}
