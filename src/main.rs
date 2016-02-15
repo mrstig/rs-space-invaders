@@ -1,3 +1,7 @@
+extern crate rustc_serialize;
+extern crate docopt;
+
+
 mod romloader;
 mod disassembler;
 mod cpu {
@@ -8,10 +12,31 @@ mod cpu {
 
 use cpu::cpu::CPU;
 use std::process;
+use docopt::Docopt;
+const USAGE: &'static str = "
+Ate zero
 
+Usage:
+  atezero [--rom <path_to_rom>]
+
+Options:
+  -h --help             Show this screen.
+  --version             Show version.
+  --rom=<path_to_rom>   Path to ROM to execute [default: mem.rom]
+";
+
+#[derive(Debug, RustcDecodable)]
+struct Args {
+    flag_rom: String,
+}
 
 fn main() {
-    let rom = romloader::load();
+
+    let args: Args = Docopt::new(USAGE)
+                            .and_then(|d| d.decode())
+                            .unwrap_or_else(|e| e.exit());
+    
+    let rom = romloader::load(&args.flag_rom);
     let mut cpu: CPU = Default::default();
 
     cpu.load_rom(rom);
