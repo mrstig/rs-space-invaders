@@ -45,7 +45,7 @@ fn main() {
     loop {
         x +=1;
         if x>1545 {
-            cpu.state.print();
+            // cpu.state.print();
         }
         if x>1555 {
             process::exit(1);
